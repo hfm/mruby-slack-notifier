@@ -24,6 +24,11 @@ end
 
 desc "cleanup"
 task :clean do
+  Dir.chdir('mruby') { sh "rake clean" }
+end
+
+desc "cleanup all"
+task :clobbar do
   Dir.chdir('mruby') { sh "rake deep_clean" }
 end
 
