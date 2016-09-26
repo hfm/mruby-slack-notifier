@@ -7,13 +7,16 @@ module Slack
       @default_payload = options
     end
 
-    def ping(message, options = {})
+    def notify(message, options = {})
       payload = default_payload.merge(options)
       payload.merge!(text: message)
       params = { payload: payload.to_json }
 
       client.post endpoint, params, { 'Content-Type' => 'application/x-www-form-urlencoded'}
     end
+
+    # compatibility for https://github.com/stevenosloan/slack-notifier
+    alias ping notify
 
     def channel
       default_payload[:channel]

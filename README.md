@@ -20,7 +20,7 @@ end
 
 ```ruby
 slack = Slack::Notifier.new 'webhook_url'
-slack.ping 'hello'
+slack.notify 'hello'
 ```
 
 ## License
