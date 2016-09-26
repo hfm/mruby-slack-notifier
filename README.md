@@ -25,4 +25,4 @@ slack.ping 'hello'
 
 ## License
 under the MIT License:
-- see LICENSE file
+- see [LICENSE](./LICENSE) file
