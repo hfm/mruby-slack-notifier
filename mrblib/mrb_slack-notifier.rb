@@ -9,7 +9,7 @@ module Slack
 
     def notify(message, options = {})
       payload = default_payload.merge(options)
-      payload.merge!(text: message)
+      payload.merge!(text: format(message))
       params = { payload: payload.to_json }
 
       client.post endpoint, params, { 'Content-Type' => 'application/x-www-form-urlencoded'}
@@ -36,6 +36,21 @@ module Slack
 
     def client
       @client ||= HttpRequest.new
+    end
+
+    HTML_LINK_REGEX = /<a(?:.*?)href=['"](?<link>.+?)['"](?:.*?)>(?<text>.+?)<\/a>/
+    MARKDOWN_LINK_REGEX = /\[(?<text>[^\]]+)\]\((?<link>[^)]+)\)/
+
+    def format(message)
+      message.gsub HTML_LINK_REGEX do |match|
+        link = Regexp.last_match[:link]
+        text = Regexp.last_match[:text]
+        "<#{link}|#{text}>"
+      end.gsub MARKDOWN_LINK_REGEX do |match|
+        link = Regexp.last_match[:link]
+        text = Regexp.last_match[:text]
+        "<#{link}|#{text}>"
+      end
     end
   end
 end

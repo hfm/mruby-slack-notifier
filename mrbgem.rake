@@ -7,4 +7,5 @@ MRuby::Gem::Specification.new('mruby-slack-notifier') do |spec|
   spec.add_dependency 'mruby-httprequest'
   spec.add_dependency 'mruby-polarssl'
   spec.add_dependency 'mruby-iijson'
+  spec.add_dependency 'mruby-onig-regexp'
 end
