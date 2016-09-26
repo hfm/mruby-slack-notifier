@@ -1,6 +1,6 @@
-# mruby-slack-notifier   [![Build Status](https://travis-ci.org/hfm/mruby-slack-notifier.svg?branch=master)](https://travis-ci.org/hfm/mruby-slack-notifier)
+# mruby-slack-notifier [![Build Status](https://travis-ci.org/hfm/mruby-slack-notifier.svg?branch=master)](https://travis-ci.org/hfm/mruby-slack-notifier)
 
-Slack class
+A mruby wrapper to notify to [Slack](https://slack.com) webhooks.
 
 ## install by mrbgems
 
